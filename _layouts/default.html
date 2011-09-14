@@ -1,14 +1,14 @@
+---
+parent: http://kungfudiscomonkey.net
+---
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		{% if page.base %}
-		<base href="{{ page.base }}">
-		{% endif %}
 		<title>{{ page.title }}</title>
 		<meta name="robots" content="noarchive" />
 		<link href="{{ site.url }}/atom.xml" rel="alternate" title="{{ site.title }}" type="application/atom+xml" />
-		<link type="text/css" href="/static/new.css" rel="stylesheet" />
+		<link type="text/css" href="{{ page.parent }}/static/new.css" rel="stylesheet" />
 		{% if page.javascript %}
 		{% for script in page.javascript %}
 		<script src="{{ script }}"></script>
@@ -18,11 +18,11 @@
 	<body>
 		<header id="head" class="{{ page.section }}">
 			<div>
-				<a href="/index.html"><img src="/static/banner.png" alt="{{ site.title }}" /></a>
+				<a href="/index.html"><img src="{{ page.parent }}/static/banner.png" alt="{{ site.title }}" /></a>
 				<span id="social">
-					<a title="LinkedIn" href="http://www.linkedin.com/in/PaulTraylor"><img src="/static/linkedin.png" alt="" /></a>
-					<a title="GitHub" href="http://github.com/kfdm/"><img src="/static/github.png" alt="" /></a>
-					<a title="Twitter" href="http://twitter.com/kfdm/"><img src="/static/twitter.png" alt=""/></a>
+					<a title="LinkedIn" href="http://www.linkedin.com/in/PaulTraylor"><img src="{{ page.parent }}/static/linkedin.png" alt="" /></a>
+					<a title="GitHub" href="http://github.com/kfdm/"><img src="{{ page.parent }}/static/github.png" alt="" /></a>
+					<a title="Twitter" href="http://twitter.com/kfdm/"><img src="{{ page.parent }}/static/twitter.png" alt=""/></a>
 				</span>
 			</div>
 			<nav>

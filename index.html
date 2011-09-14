@@ -1,26 +1,25 @@
 ---
 layout: default
-base: http://kungfudiscomonkey.net
 section: current
 javascript:
  - https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js
- - http://localhost:4000/github.js
+ - sortable.js
 ---
 <h1>Github Projects</h1>
 <section id='templates' style="display:none">
 	<table>
 	<tr class="project">
-		<td class="name"></td>
-		<td class="description"><em></em></td>
-		<td class="forks">Forks: <em></em></td>
+		<td class="name"><a href=""></a></td>
+		<td class="description"></td>
+		<td class="forks"></td>
 		<td class="watchers"></td>
-		<td class="open_issues">Issues: <em></em></td>
-		<td class="language">Language: <em></em></td>
+		<td class="issues"></td>
+		<td class="language"></td>
 	</tr>
 	</table>
 </section>
 
-<table id="github">
+<table id="github" class="sortable">
 	<thead>
 		<tr>
 			<th>Name</th>
@@ -37,3 +36,20 @@ javascript:
 		</tr>
 	</tbody>
 </table>
+<script>
+$(document).ready(function(){
+	$.getJSON('https://api.github.com/users/kfdm/repos?callback=?',function(json){
+		$('table#github tbody').html('');
+		$.each(json.data, function(i, repo) {
+			var tmpl = $('section#templates tr').clone();
+			tmpl.find('.name a').attr('href',repo.html_url).html(repo.name);
+			tmpl.find('.description').html(repo.description.substring(0,80)).attr('title',repo.description)
+			tmpl.find('.forks').html(repo.forks);
+			tmpl.find('.watchers').html(repo.watchers);
+			tmpl.find('.issues').html(repo.open_issues);
+			tmpl.find('.language').html(repo.language)
+			tmpl.appendTo('table#github');
+		});
+	});
+})
+</script>
