@@ -1,0 +1,39 @@
+---
+layout: default
+base: http://kungfudiscomonkey.net
+section: current
+javascript:
+ - https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js
+ - http://localhost:4000/github.js
+---
+<h1>Github Projects</h1>
+<section id='templates' style="display:none">
+	<table>
+	<tr class="project">
+		<td class="name"></td>
+		<td class="description"><em></em></td>
+		<td class="forks">Forks: <em></em></td>
+		<td class="watchers"></td>
+		<td class="open_issues">Issues: <em></em></td>
+		<td class="language">Language: <em></em></td>
+	</tr>
+	</table>
+</section>
+
+<table id="github">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Forks</th>
+			<th>Watchers</th>
+			<th>Issues</th>
+			<th>Language</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Loading</td>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		{% if page.base %}
+		<base href="{{ page.base }}">
+		{% endif %}
+		<title>{{ page.title }}</title>
+		<meta name="robots" content="noarchive" />
+		<link href="{{ site.url }}/atom.xml" rel="alternate" title="{{ site.title }}" type="application/atom+xml" />
+		<link type="text/css" href="/static/new.css" rel="stylesheet" />
+		{% if page.javascript %}
+		{% for script in page.javascript %}
+		<script src="{{ script }}"></script>
+		{% endfor %}
+		{% endif %}
+	</head>
+	<body>
+		<header id="head" class="{{ page.section }}">
+			<div>
+				<a href="/index.html"><img src="/static/banner.png" alt="{{ site.title }}" /></a>
+				<span id="social">
+					<a title="LinkedIn" href="http://www.linkedin.com/in/PaulTraylor"><img src="/static/linkedin.png" alt="" /></a>
+					<a title="GitHub" href="http://github.com/kfdm/"><img src="/static/github.png" alt="" /></a>
+					<a title="Twitter" href="http://twitter.com/kfdm/"><img src="/static/twitter.png" alt=""/></a>
+				</span>
+			</div>
+			<nav>
+				<ul>
+					<li class="about"><a href="/index.html">About</a></li>
+					<li class="experience"><a href="/experience.html">Experience</a></li>
+					<li class="past"><a href="/past.html">Past Projects</a></li>
+					<li class="current"><a href="/current.html">Curent Projects</a></li>
+					<li class="future"><a href="/future.html">Future Projects</a></li>
+				</ul>
+			</nav>
+		</header>
+		<section id="content" class="{{page.tab}} {{ page.section }}">
+{{ content }}
+		</section>
+		<footer class="{{ page.section }}">Copyright &copy; Paul Traylor 2004-2011</footer>
+	</body>
+</html>
